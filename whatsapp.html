@@ -1,22 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>WhatsApp</title>
     <script>
-        function sendMessage(){
-            alert("sendMessageing")
-            num=document.getElementById("number").value;
-            url="https://api.whatsapp.com/send?phone=+91"+num;
-            console.log(url);
-            window.location.href=""+url;
+        function sendMessage() {
+            num = document.getElementById("mobilenumber").value;
+            if (num != "" && !isNaN(num)) {
+                url = "https://api.whatsapp.com/send?phone=+91" + num;
+                window.location.href = "" + url;
+            } else {
+                alert("Invalid Number")
+            }
         }
     </script>
 </head>
+
 <body>
-    <input type="text" id="number"required placeholder="Enter WhatsApp number to send Message" > <br>
-    <button onclick="sendMessage()">Send Message</button>
+    <div class="jumbotron text-center">
+        <h1 class="text-info">Welcome to Web Apps </h1>
+        <p class="text-primary">Web-Apps is utility apps which contains some utility web application running on github
+            server</p>
+        <a href="index.html"><Button class="btn btn-success">HOME</Button></a>
+    </div>
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">WhatsApp-Number</label>
+                <input type="text" class="form-control" id="mobilenumber" placeholder="Enter whatsapp number" required>
+            </div>
+        </div>
+    </form>
+    <button class="btn btn-primary" onclick="sendMessage()">Send Message</button>
 </body>
+
 </html>
