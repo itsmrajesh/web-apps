@@ -1,0 +1,56 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Discount Calculator - WEB APPS </title>
+
+    <script type="text/javascript">
+        function calculate() {
+            var price = 0, discount = 0, afterDiscount = 0;
+            price = Number(document.discountCalculator.price.value);
+            discount = Number(document.discountCalculator.discount.value);
+
+
+            afterDiscount = price - (price * discount / 100);
+
+            document.discountCalculator.price.value = price.toFixed(2);
+            document.discountCalculator.discount.value = discount.toFixed(2);
+            document.getElementById("result").innerHTML = "Price after discount : " + afterDiscount.toFixed(2);
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="jumbotron text-center">
+        <h1 class="text-info">Welcome to Web Apps </h1>
+        <p class="text-primary">Web-Apps is utility apps which contains some utility web application running on github
+            server</p>
+        <a href="index.html"><Button class="btn btn-success">HOME</Button></a>
+    </div>
+
+    <div class="container-fluid">
+        <h3 class="text-primary">Discount Calculator</h3>
+        <div class="row">
+            <div class="col-sm-3 col-md-5">
+                <form name="discountCalculator">
+                    OrginalPrice:
+                    <input type="text" class="form-control" name="price"> <br>
+                    Discount:
+                    <input type="text" class="form-control" name="discount"> <br>
+                    <input type="reset" value="Clear" class="btn btn-warning">
+                </form>
+                <input type="button" value="Calculate Discount" class="btn btn-primary" onclick="calculate()">
+                <h2 id="result"></h2>
+            </div>
+        </div>
+</body>
+
+</html>
