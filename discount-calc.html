@@ -22,6 +22,24 @@
             document.discountCalculator.price.value = price.toFixed(2);
             document.discountCalculator.discount.value = discount.toFixed(2);
             document.getElementById("result").innerHTML = "Price after discount : " + afterDiscount.toFixed(2);
+            document.getElementById("saved").innerHTML = "You saved : " + (price - afterDiscount);
+
+        }
+
+
+        function calculateBonus() {
+            var salary = 0, bonus = 0, netSalary = 0;
+
+            salary = Number(document.discountCalculator.price.value);
+            bonus = Number(document.discountCalculator.discount.value);
+
+            netSalary = salary + (salary * bonus / 100);
+            document.discountCalculator.price.value = salary.toFixed(2);
+            document.discountCalculator.discount.value = bonus.toFixed(2);
+            document.getElementById("result").innerHTML = "Your NetSalary   : " + netSalary.toFixed(2);
+            document.getElementById("saved").innerHTML = "Your bonus amount : " + (netSalary-salary);
+
+
 
         }
     </script>
@@ -37,18 +55,23 @@
     </div>
 
     <div class="container-fluid">
-        <h3 class="text-primary">Discount Calculator</h3>
+        <h3 class="text-primary">Discount/Bonus Calculator</h3>
         <div class="row">
             <div class="col-sm-5 col-md-5">
                 <form name="discountCalculator">
-                    OrginalPrice:
-                    <input type="text" class="form-control" name="price" placeholder="Enter Orginal Price"> <br>
-                    Discount:
-                    <input type="text" class="form-control" name="discount" onchange="calculate()" placeholder="Enter Discount %"> <br>
+                    OrginalPrice/Wages:
+                    <input type="text" class="form-control" name="price" placeholder="Enter Orginal Price/Salary"> <br>
+                    Discount/Bonus:
+                    <input type="text" class="form-control" name="discount" onchange="calculate()"
+                        placeholder="Enter Discount % or Bonus %"> <br>
                     <input type="reset" value="Clear" class="btn btn-warning">
                 </form>
                 <input type="button" value="Calculate Discount" class="btn btn-primary" onclick="calculate()">
+                <input type="button" value="Calculate Bonus" class="btn btn-primary" onclick="calculateBonus()">
+
                 <h2 id="result"></h2>
+                <hr>
+                <h2 id="saved"></h2>
             </div>
         </div>
 </body>
