@@ -22,7 +22,7 @@
             document.discountCalculator.price.value = price.toFixed(2);
             document.discountCalculator.discount.value = discount.toFixed(2);
             document.getElementById("result").innerHTML = "Price after discount : " + afterDiscount.toFixed(2);
-            document.getElementById("saved").innerHTML = "You saved : " + (price - afterDiscount);
+            document.getElementById("saved").innerHTML = "You saved : " + (price - afterDiscount).toFixed(2);
 
         }
 
@@ -37,7 +37,7 @@
             document.discountCalculator.price.value = salary.toFixed(2);
             document.discountCalculator.discount.value = bonus.toFixed(2);
             document.getElementById("result").innerHTML = "Your NetSalary   : " + netSalary.toFixed(2);
-            document.getElementById("saved").innerHTML = "Your bonus amount : " + (netSalary-salary);
+            document.getElementById("saved").innerHTML = "Your bonus amount : " + (netSalary-salary).toFixed(2);
 
 
 
