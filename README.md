@@ -3,7 +3,7 @@ Web Apps is PWA app built using HTML,CS,JS and Boostrap.
 
 ## Load once use any time
 
-This app works on even when your don't internet connection, works offline.
+This app works on even when your don't have internet connection, works offline.
 
 ## Installation
 
