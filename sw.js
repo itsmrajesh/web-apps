@@ -1,7 +1,7 @@
-const staticCacheName = 'site-static-v1';
+const staticCacheName = 'site-static-v2';
 const assets = [
     'index.html',
-    'js/app.js',
+    'app.js',
     "img/logo-eng.png",
     "CgpaToPercentage.html",
     "discount-calc.html",
