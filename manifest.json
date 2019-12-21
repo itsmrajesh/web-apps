@@ -1,0 +1,21 @@
+{
+    "name": "Web Apps by Rajesh",
+    "short_name": "Web Apps",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#FFE9D2",
+    "theme_color": "#FFE1C4",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "img/logo-eng.png",
+        "type": "image/png",
+        "sizes": "144x144"
+      },
+      {
+        "src": "img/logo-eng.png",
+        "type": "image/png",
+        "sizes": "72x72"
+      }
+    ]
+  }

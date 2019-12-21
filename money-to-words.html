@@ -9,7 +9,37 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Money-to-Word Convertor - WEB APPS </title>
+    <link rel="manifest" href="manifest.json">
 
+    <style>
+        #word {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="jumbotron text-center">
+        <h1 class="text-info">Welcome to Web Apps </h1>
+        <p class="text-primary">Web-Apps is utility apps which contains some utility web application running on github
+            server</p>
+        <a href="index.html"><Button class="btn btn-success">HOME</Button></a>
+    </div>
+
+
+    <div class="container-fluid">
+        <h3 class="text-primary">Number to Amount in words Convertor</h3>
+        <div class="row">
+            <div class="col-sm-5 col-md-7">
+                <label for="amount">Amount: </label>
+                <input id="amount" type="number" name="number" placeholder="Number OR Amount"
+                    onkeyup="word.innerHTML=convertNumberToWords(this.value)" />
+                <div class="text-info font-weight-bold" id="word"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
     <script type="text/javascript">
         function convertNumberToWords(amount) {
             var words = new Array();
@@ -96,32 +126,6 @@
             return words_string;
         }
     </script>
-    <style>
-        #word{
-            font-size: 20px;
-        }
-    </style>
-</head>
-
-<body>
-
-    <div class="jumbotron text-center">
-        <h1 class="text-info">Welcome to Web Apps </h1>
-        <p class="text-primary">Web-Apps is utility apps which contains some utility web application running on github
-            server</p>
-        <a href="index.html"><Button class="btn btn-success">HOME</Button></a>
-    </div>
 </body>
-
-<div class="container-fluid">
-    <h3 class="text-primary">Number to Amount in words Convertor</h3>
-    <div class="row">
-        <div class="col-sm-5 col-md-7">
-            <label for="amount">Amount: </label>
-            <input id="amount" type="number" name="number" placeholder="Number OR Amount"
-                onkeyup="word.innerHTML=convertNumberToWords(this.value)" />
-            <div class="text-info font-weight-bold" id="word"></div>
-        </div>
-    </div>
 
 </html>

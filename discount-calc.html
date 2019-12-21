@@ -9,40 +9,8 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Discount Calculator - WEB APPS </title>
+    <link rel="manifest" href="manifest.json">
 
-    <script type="text/javascript">
-        function calculate() {
-            var price = 0, discount = 0, afterDiscount = 0;
-            price = Number(document.discountCalculator.price.value);
-            discount = Number(document.discountCalculator.discount.value);
-
-
-            afterDiscount = price - (price * discount / 100);
-
-            document.discountCalculator.price.value = price.toFixed(2);
-            document.discountCalculator.discount.value = discount.toFixed(2);
-            document.getElementById("result").innerHTML = "Price after discount : " + afterDiscount.toFixed(2);
-            document.getElementById("saved").innerHTML = "You saved : " + (price - afterDiscount).toFixed(2);
-
-        }
-
-
-        function calculateBonus() {
-            var salary = 0, bonus = 0, netSalary = 0;
-
-            salary = Number(document.discountCalculator.price.value);
-            bonus = Number(document.discountCalculator.discount.value);
-
-            netSalary = salary + (salary * bonus / 100);
-            document.discountCalculator.price.value = salary.toFixed(2);
-            document.discountCalculator.discount.value = bonus.toFixed(2);
-            document.getElementById("result").innerHTML = "Your NetSalary   : " + netSalary.toFixed(2);
-            document.getElementById("saved").innerHTML = "Your bonus amount : " + (netSalary-salary).toFixed(2);
-
-
-
-        }
-    </script>
 </head>
 
 <body>
@@ -60,7 +28,8 @@
             <div class="col-sm-5 col-md-5">
                 <form name="discountCalculator">
                     OrginalPrice/Wages:
-                    <input type="number" class="form-control" name="price" placeholder="Enter Orginal Price/Salary"> <br>
+                    <input type="number" class="form-control" name="price" placeholder="Enter Orginal Price/Salary">
+                    <br>
                     Discount/Bonus:
                     <input type="number" class="form-control" name="discount" onchange="calculate()"
                         placeholder="Enter Discount % or Bonus %"> <br>
@@ -74,6 +43,38 @@
                 <h2 id="saved"></h2>
             </div>
         </div>
+        <script src="js/app.js"></script>
+        <script type="text/javascript">
+            function calculate() {
+                var price = 0, discount = 0, afterDiscount = 0;
+                price = Number(document.discountCalculator.price.value);
+                discount = Number(document.discountCalculator.discount.value);
+
+
+                afterDiscount = price - (price * discount / 100);
+
+                document.discountCalculator.price.value = price.toFixed(2);
+                document.discountCalculator.discount.value = discount.toFixed(2);
+                document.getElementById("result").innerHTML = "Price after discount : " + afterDiscount.toFixed(2);
+                document.getElementById("saved").innerHTML = "You saved : " + (price - afterDiscount).toFixed(2);
+
+            }
+
+
+            function calculateBonus() {
+                var salary = 0, bonus = 0, netSalary = 0;
+
+                salary = Number(document.discountCalculator.price.value);
+                bonus = Number(document.discountCalculator.discount.value);
+
+                netSalary = salary + (salary * bonus / 100);
+                document.discountCalculator.price.value = salary.toFixed(2);
+                document.discountCalculator.discount.value = bonus.toFixed(2);
+                document.getElementById("result").innerHTML = "Your NetSalary   : " + netSalary.toFixed(2);
+                document.getElementById("saved").innerHTML = "Your bonus amount : " + (netSalary - salary).toFixed(2);
+
+            }
+        </script>
 </body>
 
 </html>

@@ -5,6 +5,7 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>CGPA to Percentage Convertor</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -17,25 +18,7 @@
             background-color: #e8eaed;
         } */
     </style>
-    <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-    <script>
-        function calculatePercentage() {
-            var cgpa = document.getElementById("cgpa").value;
-            var percentage;
-            if (cgpa > 10) {
-                percentage = "Invalid CGPA Input";
-                alert("CGPA Should be Less than or equal to 10");
-            }
-            else {
-                percentage = (cgpa - 0.75) * 10 + " %";
-            }
-            document.getElementById("showpercentage").innerHTML = percentage;
-        }
-
-        function resetValue() {
-            document.getElementById("showpercentage").innerHTML = "";
-        }
-    </script>
+    <!-- <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script> -->
 </head>
 
 <body>
@@ -94,6 +77,26 @@
             </div>
         </div> -->
     </div>
+    <script src="js/app.js"></script>
+
+    <script>
+        function calculatePercentage() {
+            var cgpa = document.getElementById("cgpa").value;
+            var percentage;
+            if (cgpa > 10) {
+                percentage = "Invalid CGPA Input";
+                alert("CGPA Should be Less than or equal to 10");
+            }
+            else {
+                percentage = (cgpa - 0.75) * 10 + " %";
+            }
+            document.getElementById("showpercentage").innerHTML = percentage;
+        }
+
+        function resetValue() {
+            document.getElementById("showpercentage").innerHTML = "";
+        }
+    </script>
 </body>
 
 </html>
