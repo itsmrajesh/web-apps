@@ -1,12 +1,12 @@
-const staticCacheName = 'site-static-v2';
+const staticCacheName = 'site-static-v3';
 const assets = [
     'index.html',
     'app.js',
     "img/logo-eng.png",
-    "CgpaToPercentage.html",
-    "discount-calc.html",
-    "money-to-words.html",
-    "whatsapp.html"
+    "https://itsmrajesh.github.io/web-apps/CgpaToPercentage.html",
+    "https://itsmrajesh.github.io/web-apps/whatsapp.html",
+    "https://itsmrajesh.github.io/web-apps/discount-calc.html",
+    "https://itsmrajesh.github.io/web-apps/money-to-words.html"
 ];
 
 
