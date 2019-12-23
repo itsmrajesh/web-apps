@@ -1,7 +1,6 @@
-const staticCacheName = 'site-static-v4';
+const staticCacheName = 'site-static-v4.1';
 const assets = [
     'index.html',
-    'app.js',
     "img/logo-eng.png",
     "https://itsmrajesh.github.io/web-apps/CgpaToPercentage.html",
     "https://itsmrajesh.github.io/web-apps/whatsapp.html",
