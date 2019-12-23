@@ -1,4 +1,4 @@
-const staticCacheName = 'site-static-v4.1';
+const staticCacheName = 'site-static-v4.2';
 const assets = [
     'index.html',
     "img/logo-eng.png",
