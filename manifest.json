@@ -1,6 +1,6 @@
 {
     "name": "Web Apps by Rajesh",
-    "short_name": "Web Apps V 5.1",
+    "short_name": "Web Apps v5.1",
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "#FFE9D2",
@@ -33,7 +33,7 @@
         "sizes": "192x192"
       },
       {
-        "src": "img/icons/icon-512x512.png",
+        "src": "img/icons/Icon-98@2x.png",
         "type": "image/png",
         "sizes": "512x512"
       }
