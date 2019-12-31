@@ -1,13 +1,14 @@
-const staticCacheName = 'site-static-v5.3';
+const staticCacheName = 'site-static-v5.6';
 const assets = [
     "index.html",
+    "app.js",
     "img/icons/icon-72x72.png",
     "img/ohno.png",
     "css/style.css",
-    "https://itsmrajesh.github.io/web-apps/CgpaToPercentage.html",
-    "https://itsmrajesh.github.io/web-apps/fallback.html",
-    "https://itsmrajesh.github.io/web-apps/discount-calc.html",
-    "https://itsmrajesh.github.io/web-apps/money-to-words.html"
+    "CgpaToPercentage.html",
+    "fallback.html",
+    "discount-calc.html",
+    "money-to-words.html"
 ];
 
 
@@ -44,6 +45,6 @@ self.addEventListener('fetch', evt => {
     evt.respondWith(
         caches.match(evt.request).then(cacheRes => {
             return cacheRes || fetch(evt.request);
-        }).catch(() => caches.match('https://itsmrajesh.github.io/web-apps/fallback.html'))
+        }).catch(() => caches.match('/fallback.html'))
     );
 });
