@@ -1,13 +1,15 @@
-const staticCacheName = 'site-static-v5.8';
+var staticCacheName = 'site-static-v5.9';
 const assets = [
-    "index.html",
-    "img/icons/icon-72x72.png",
-    "img/ohno.png",
-    "css/style.css",
-    "CgpaToPercentage.html",
-    "fallback.html",
-    "discount-calc.html",
-    "money-to-words.html"
+    // "https://itsmrajesh.github.io/web-apps/manifest.json",
+    "https://itsmrajesh.github.io/web-apps/index.html",
+    "https://itsmrajesh.github.io/web-apps/img/icons/icon-72x72.png",
+    "https://itsmrajesh.github.io/web-apps/img/ohno.png",
+    "https://itsmrajesh.github.io/web-apps/css/style.css",
+    "https://itsmrajesh.github.io/web-apps/CgpaToPercentage.html",
+    "https://itsmrajesh.github.io/web-apps/fallback.html",
+    "https://itsmrajesh.github.io/web-apps/discount-calc.html",
+    "https://itsmrajesh.github.io/web-apps/money-to-words.html",
+    "https://itsmrajesh.github.io/web-apps/whatsapp.html"
 ];
 
 
@@ -44,6 +46,6 @@ self.addEventListener('fetch', evt => {
     evt.respondWith(
         caches.match(evt.request).then(cacheRes => {
             return cacheRes || fetch(evt.request);
-        }).catch(() => caches.match('/fallback.html'))
+        }).catch(() => caches.match('https://itsmrajesh.github.io/web-apps/fallback.html'))
     );
 });
