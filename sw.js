@@ -1,4 +1,4 @@
-var staticCacheName = 'site-static-v5.9.1';
+var staticCacheName = 'site-static-v6.0';
 const assets = [
     // "https://itsmrajesh.github.io/web-apps/manifest.json",
     "https://itsmrajesh.github.io/web-apps/index.html",
