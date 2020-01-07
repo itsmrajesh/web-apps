@@ -9,7 +9,8 @@ const assets = [
     "https://itsmrajesh.github.io/web-apps/fallback.html",
     "https://itsmrajesh.github.io/web-apps/discount-calc.html",
     "https://itsmrajesh.github.io/web-apps/money-to-words.html",
-    "https://itsmrajesh.github.io/web-apps/whatsapp.html"
+    "https://itsmrajesh.github.io/web-apps/whatsapp.html",
+    "https://kit.fontawesome.com/5ce80e17f8.js"
 ];
 
 
