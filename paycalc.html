@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="print.min.css">
+    <title>Payment Calculator</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-md-12">
+                <h4 class="text-info">Payment Calculator</h4>
+            </div>
+        </div>
+
+        <!-- Row -->
+        <div class="row">
+
+            <div class="col-md-6">
+                <form id="myform">
+                    <div class="form-group">
+                        <label for="cname">Enter Name</label>
+                        <input type="text" name="cname" id="cname" class="form-control" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type">Type</label>
+                        <select class="form-control" name="type" id="type">
+                            <option value="">Select</option>
+                            <option value="cotton">Cotton</option>
+                            <option value="paddy">Paddy</option>
+                            <option>..</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="netweight">Net Weight</label>
+                        <input type="number" class="form-control" name="netweight" id="netweight" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cw">Calculating weight</label>
+                        <input type="number" class="form-control" name="cw" id="cw" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" class="form-control" name="price" id="price" placeholder="">
+                    </div>
+
+
+                    <input type="submit" id="btn" class="btn btn-primary" value="Calculate">
+
+                    <input type="button" class="btn btn-warning" onclick="resetData()" value="Reset">
+
+
+                </form>
+            </div>
+
+            <div class="col-md-6" id="result-view">
+
+                <div id="printData">
+
+                    <h3 class="text-info">Payment Recipt</h3>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td scope="row">Name</td>
+                                <td id="res_name"></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Type</td>
+                                <td id="res_type"></td>
+                            </tr>
+
+                            <tr>
+                                <td scope="row">Net Weight</td>
+                                <td id="res_netweight"></td>
+                            </tr>
+
+                            <tr>
+                                <td scope="row">Price</td>
+                                <td id="res_price"></td>
+                            </tr>
+
+                            <tr>
+                                <td scope="row">Total Payment</td>
+                                <td id="res_payment"></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <button type="button" class="btn btn-primary" id="print">Print Recipt</button>
+
+            </div>
+
+
+        </div> <!-- row end  -->
+    </div>
+
+</body>
+
+<script src="print.min.js"></script>
+
+<script>
+
+    // printJS({ printable: 'result-view', type: 'html' });
+
+    var result_view = document.getElementById("result-view");
+    result_view.style.display = "none";
+
+    const btn = document.querySelector("#btn");
+
+    const printBtn = document.querySelector("#print");
+
+    calculatePayment = (nw, cw, price) => {
+        let payment = 0;
+        const units = nw / cw;
+        payment = units * price;
+        return payment.toFixed(2);
+    }
+
+    btn.addEventListener('click', event => {
+        event.preventDefault();
+
+        const formdata = document.querySelector("#myform")
+        const name = formdata.cname.value
+        const type = formdata.type.value
+        const nw = Number.parseFloat(formdata.netweight.value);
+        const cw = Number.parseFloat(formdata.cw.value);
+        const price = Number.parseFloat(formdata.price.value);
+
+        const payment = calculatePayment(nw, cw, price);
+
+        result_view.style.display = "block";
+
+        document.querySelector("#res_name").textContent = name;
+
+        document.querySelector("#res_type").textContent = type;
+
+        document.querySelector("#res_netweight").textContent = `${nw} kgs`;
+
+        document.querySelector("#res_price").textContent = `${price} per ${cw} kg`;
+
+        document.querySelector("#res_payment").textContent = `Rs ${payment}`;
+    })
+
+
+    printBtn.addEventListener('click', (event) => {
+        printJS({ printable: 'printData', type: 'html' });
+    })
+
+    function resetData() {
+        result_view.style.display = "none";
+        document.querySelector("#myform").reset();
+    }
+
+</script>
+
+</html>
