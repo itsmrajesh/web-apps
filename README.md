@@ -1,5 +1,5 @@
 # Web Apps
-Web Apps is PWA app built using HTML,CS,JS and Boostrap.
+Web Apps is PWA app built using HTML,CS,JS and Bootstrap.
 
 ## Load once use any time
 
