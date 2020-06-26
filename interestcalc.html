@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Intrest Calculator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <a href="index.html">Home</a>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-md-6 col-sm-4">
+                <h3 class="text-info mt-2">Interest Calculator</h3>
+                <form id="formData">
+
+                    <div class="form-group">
+                        <label for="startdate">Start Date</label>
+                        <input type="date" name="startdate" id="startdate" class="form-control" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="enddate">End Date</label>
+                        <input type="date" name="enddate" id="enddate" class="form-control" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" class="form-control" name="amount" id="amount"
+                            placeholder="Example: 1000 ">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interest">Interest(Rs)</label>
+                        <input type="number" class="form-control" name="interest" id="interest"
+                            placeholder="Example: 2">
+                    </div>
+
+                    <button type="button" class="btn btn-primary" id="btn">Calculate Interest</button>
+                    <input type="reset" class="btn btn-warning" value="Reset">
+
+                </form>
+            </div>
+            <div class="col-md-6 col-sm-5 mt-2">
+                <div id="myDIV">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    const btn = document.querySelector("#btn");
+
+    const milsec = 1000 * 3600 * 24;
+
+    var div = document.getElementById("myDIV");
+    div.style.display = "none";
+
+    btn.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const formData = document.querySelector("#formData");
+
+        let startdate = formData.startdate.value;
+        let enddate = formData.enddate.value;
+        let amount = Number.parseFloat(formData.amount.value);
+        let interest = Number.parseFloat(formData.interest.value);
+
+        let d1 = new Date(startdate);
+        let d2 = new Date(enddate);
+
+        let diff = d2.getTime() - d1.getTime();
+
+        if (diff < 0) {
+            alert("Invalid End date");
+            formData.reset();
+            div.style.display = "none";
+            return;
+        }
+
+
+        const days = diff / milsec;
+
+        const oneDayIntrest = (amount * (interest / 100)).toFixed(2);
+
+        const nDaysIntrest = (oneDayIntrest * days).toFixed(2);
+
+        const total = (amount + Number.parseFloat(nDaysIntrest)).toFixed(2);
+
+        div.style.display = "block";
+
+        let info = `<table class="table table-striped" id="pbd2">
+                        <h4 class="text-info">Result</h4>
+                        <thead>
+                            <tr>
+                                <th> Days: </th>
+                                <th>${days}</th>
+                            </tr>
+                            <tr>
+                                <th>Interest Per Day: </th>
+                                <th>&#8377; ${oneDayIntrest} </th>
+                            </tr>
+                            <tr>
+                                <th class="text-success">Total Interest: </th>
+                                <th class="text-success">&#8377; ${nDaysIntrest}</th>
+                            </tr>
+                            <tr>
+                                <th class="text-success">Total Amount: </th>
+                                <th class="text-success">&#8377; ${total}</th>
+                            </tr>
+                        </thead>
+                    </table>`;
+
+
+        div.innerHTML = info;
+
+    })
+
+</script>
+
+</html>
